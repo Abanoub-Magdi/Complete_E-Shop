@@ -10,20 +10,21 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4"  *ngFor="let item of products">
+        <div class="col-md-4" *ngFor="let item of products">
             <!-- Card 1 -->
             <div class="card product-card">
                 <img src="{{item.image}}" class="card-img-top" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
-                    <p class="price">$49.99</p>
-                    <div class="rating">
+                    <p class="price">{{item.price}} $</p>
+                    <h5> rate: {{item.rating.rate}}</h5>
+                    <!-- <div class="rating">
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span>
                         <span class="star">&#9733;</span>
-                        <span class="star">&#9732;</span>
+                        <span class="star">&#9733;</span>s
                         <span class="text-muted">&#9734;</span>
-                    </div>
+                    </div> -->
                     <label for="sizeSelect1" class="mt-3">Choose Size:</label>
                     <select class="form-control mb-3" id="sizeSelect1">
                         <option value="small">Small</option>
