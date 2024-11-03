@@ -13,7 +13,7 @@
         <div class="col-md-4"  *ngFor="let item of products">
             <!-- Card 1 -->
             <div class="card product-card">
-                <img src="https://picsum.photos/200/300" class="card-img-top" alt="Product Image">
+                <img src="{{item.image}}" class="card-img-top" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <p class="price">$49.99</p>
