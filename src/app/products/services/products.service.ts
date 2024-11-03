@@ -15,7 +15,12 @@ export class ProductsService {
   }
 
   getAllCategories() {
-    return this.http.get(environment.apiUrl+'products/categories')
+    return this.http.get(environment.apiUrl + 'products/categories')
+  }
+
+
+  getProductsByCategory(keyword: string) {
+    return this.http.get(environment.apiUrl + 'products/category/' + keyword)
   }
 
 }

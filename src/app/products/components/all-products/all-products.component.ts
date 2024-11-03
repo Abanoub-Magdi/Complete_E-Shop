@@ -33,9 +33,20 @@ export class AllProductsComponent implements OnInit {
     this.service.getAllCategories().subscribe((category: any) => {
       this.categories = category;
       console.log(category);
-    },error=>{alert("Error oqured during loading categories" )})
+    }, error => { alert("Error oqured during loading categories") })
   }
 
+  getFilteredCategory(event: any) {
+    let value = event.target.value;
+    console.log(value);
 
+    this.getTheFilteredProductCategory(value);
+  }
+
+  getTheFilteredProductCategory(categoryName: string) {
+    this.service.getProductsByCategory(categoryName).subscribe((cat:any) => {
+      this.products = cat;
+    },error => {alert(error)})
+  }
 
 }
