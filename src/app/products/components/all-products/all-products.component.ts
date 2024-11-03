@@ -8,11 +8,13 @@ import { ProductsService } from '../../services/products.service';
 })
 export class AllProductsComponent implements OnInit {
   products: any[] = [];
+  categories: any[] = [];
 
   constructor(private service: ProductsService) { }
 
   ngOnInit() {
     this.getProducts();
+    this.getCategories();
   }
 
   getProducts() {
@@ -22,6 +24,18 @@ export class AllProductsComponent implements OnInit {
 
       // To check that data is returned
       console.log(items);
+    }, error => {
+      alert("Error oqured during loading products" + error)
     });
   }
+
+  getCategories() {
+    this.service.getAllCategories().subscribe((category: any) => {
+      this.categories = category;
+      console.log(category);
+    },error=>{alert("Error oqured during loading categories" )})
+  }
+
+
+
 }

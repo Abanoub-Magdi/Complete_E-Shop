@@ -11,6 +11,11 @@ export class ProductsService {
 
   //this service return the job which api do
   getAllProducts() {
-    return this.http.get( environment.apiUrl + 'products')
+    return this.http.get(environment.apiUrl + 'products')
   }
+
+  getAllCategories() {
+    return this.http.get(environment.apiUrl+'products/categories')
+  }
+
 }

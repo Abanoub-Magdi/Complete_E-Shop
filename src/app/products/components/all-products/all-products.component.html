@@ -1,10 +1,8 @@
-<div class="my-2 w-25">
+<div class="my-2 w-25" >
     <label for="sizeSelect" class="mt-3 w-25">Categories:</label>
     <select class="form-control mb-3" id="sizeSelect">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-    </select>
+        <option value="small"*ngFor="let cat of categories">{{cat}}</option>
+      </select>
 
 </div>
 
@@ -16,21 +14,7 @@
                 <img src="{{item.image}}" class="card-img-top" alt="Product Image">
                 <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
-                    <p class="price">{{item.price}} $</p>
-                    <h5> rate: {{item.rating.rate}}</h5>
-                    <!-- <div class="rating">
-                        <span class="star">&#9733;</span>
-                        <span class="star">&#9733;</span>
-                        <span class="star">&#9733;</span>
-                        <span class="star">&#9733;</span>s
-                        <span class="text-muted">&#9734;</span>
-                    </div> -->
-                    <label for="sizeSelect1" class="mt-3">Choose Size:</label>
-                    <select class="form-control mb-3" id="sizeSelect1">
-                        <option value="small">Small</option>
-                        <option value="medium">Medium</option>
-                        <option value="large">Large</option>
-                    </select>
+                    <p class="price">Price: {{item.price}} EGP</p>
                     <button class="btn btn-primary">Add to Cart</button>
                 </div>
             </div>
