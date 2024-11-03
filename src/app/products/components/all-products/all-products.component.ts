@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
+import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-all-products',
@@ -38,15 +39,22 @@ export class AllProductsComponent implements OnInit {
 
   getFilteredCategory(event: any) {
     let value = event.target.value;
-    console.log(value);
-
-    this.getTheFilteredProductCategory(value);
+    // console.log(value);
+    (value == "All") ? this.getProducts() : this.getTheFilteredProductCategory(value);
+    ///////////// old way to handl "All" filter /////////////
+    //   if (value == 'All') {
+    //     return this.getProducts();
+    //   } else {
+    //     this.getTheFilteredProductCategory(value);
+    //   }
+    // 
   }
 
   getTheFilteredProductCategory(categoryName: string) {
-    this.service.getProductsByCategory(categoryName).subscribe((cat:any) => {
+    this.service.getProductsByCategory(categoryName).subscribe((cat: any) => {
       this.products = cat;
-    },error => {alert(error)})
+    }, error => { alert(error) })
   }
 
 }
+ 
