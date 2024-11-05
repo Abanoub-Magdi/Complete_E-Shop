@@ -1,14 +1,8 @@
-<div class="my-2 w-25" >
-    <label for="sizeSelect" class="mt-3 w-25">Categories:</label>
-    <select class="form-control mb-3" id="sizeSelect" (change)="getFilteredCategory($event)">
-        <option disabled selected>Select Category</option>
-        <option >All</option>
-        <option *ngFor="let cat of categories">{{cat}}</option>
-      </select>
-
+<div class="my-2 w-25">
+    <app-select [data]="categories" [title]="'categories'" (selectedValue)="getFilteredCategory($event)"></app-select>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="!loading">
     <div class="row">
         <div class="col-md-4" *ngFor="let item of products">
             <!-- Card 1 -->
@@ -22,4 +16,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="text-center w100" *ngIf="loading">
+    <app-spinner></app-spinner>
 </div>

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
-import { ThisReceiver } from '@angular/compiler';
 
 @Component({
   selector: 'app-all-products',
   templateUrl: './all-products.component.html',
-  styleUrls: ['./all-products.component.scss'] // Corrected property name
+  styleUrls: ['./all-products.component.scss']
 })
 export class AllProductsComponent implements OnInit {
   products: any[] = [];
   categories: any[] = [];
+  loading: boolean = false;
 
   constructor(private service: ProductsService) { }
 
@@ -19,42 +19,47 @@ export class AllProductsComponent implements OnInit {
   }
 
   getProducts() {
+    this.loading = true;
     this.service.getAllProducts().subscribe((items: any) => {
-      // Here I put the data in an array named products and I'll loop through it in the HTML page
       this.products = items;
-
-      // To check that data is returned
       console.log(items);
+      this.loading = false; // Ensure loading is set to false after data is loaded
     }, error => {
-      alert("Error oqured during loading products" + error)
+      this.loading = false;
+      alert("Error occurred during loading products: " + error);
     });
   }
 
   getCategories() {
+    this.loading = true;
     this.service.getAllCategories().subscribe((category: any) => {
       this.categories = category;
+      this.loading = false;
       console.log(category);
-    }, error => { alert("Error oqured during loading categories") })
+    }, error => {
+      this.loading = false;
+      alert("Error occurred during loading categories: " + error);
+    });
   }
 
   getFilteredCategory(event: any) {
+    this.loading = true;
     let value = event.target.value;
-    // console.log(value);
-    (value == "All") ? this.getProducts() : this.getTheFilteredProductCategory(value);
-    ///////////// old way to handl "All" filter /////////////
-    //   if (value == 'All') {
-    //     return this.getProducts();
-    //   } else {
-    //     this.getTheFilteredProductCategory(value);
-    //   }
-    // 
+    if (value === "All") {
+      this.getProducts();
+    } else {
+      this.getTheFilteredProductCategory(value);
+    }
   }
 
   getTheFilteredProductCategory(categoryName: string) {
+    this.loading = true;
     this.service.getProductsByCategory(categoryName).subscribe((cat: any) => {
       this.products = cat;
-    }, error => { alert(error) })
+      this.loading = false;
+    }, error => {
+      this.loading = false;
+      alert("Error occurred: " + error);
+    });
   }
-
 }
- 
