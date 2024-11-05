@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './select/select.component';
+import { ProductComponent } from './product/product.component';
 
 
 
@@ -14,7 +15,8 @@ import { SelectComponent } from './select/select.component';
   declarations:[
     HeaderComponent,
     SpinnerComponent,
-    SelectComponent
+    SelectComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { SelectComponent } from './select/select.component';
   exports: [
     HeaderComponent,
     SpinnerComponent,
-    SelectComponent
+    SelectComponent,
+    ProductComponent
 
   ]
 })
