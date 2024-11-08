@@ -23,4 +23,10 @@ export class ProductsService {
     return this.http.get(environment.apiUrl + 'products/category/' + keyword)
   }
 
+
+  getProductById(id: any) {
+    return this.http.get(environment.apiUrl + 'products/' + id)
+  }
+
+
 }

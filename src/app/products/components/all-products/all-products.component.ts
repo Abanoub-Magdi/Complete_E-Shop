@@ -11,6 +11,7 @@ export class AllProductsComponent implements OnInit {
   categories: any[] = [];
   loading: boolean = false;
   productsCart: any[] = [];
+
   constructor(private service: ProductsService) { }
 
   ngOnInit() {
@@ -68,7 +69,7 @@ export class AllProductsComponent implements OnInit {
       this.productsCart = JSON.parse(localStorage.getItem("cart")!); // Load existing cart data
   
       // Check if item already exists in the cart
-      let exist = this.productsCart.find(item => item.id === event.id);
+      let exist = this.productsCart.find(item => item.item.id === event.item.id);
       if (exist) {
         alert('This Item Already Exists in the Cart');
       } else {

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from './components/header/header.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './select/select.component';
 import { ProductComponent } from './product/product.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +17,10 @@ import { FormsModule } from '@angular/forms';
     ProductComponent
   ],
   imports: [
-    CommonModule,
-    BrowserModule,
-    RouterModule,
-    HttpClientModule,
-    FormsModule
+    CommonModule,        // Import CommonModule for directives like ngIf and ngFor
+    RouterModule,        // Import RouterModule for routing inside SharedModule if needed
+    HttpClientModule,    // Import HttpClientModule if making HTTP requests from SharedModule
+    FormsModule          // Import FormsModule for two-way data binding
   ],
   exports: [
     HeaderComponent,
