@@ -4,7 +4,8 @@
 <div class="container" *ngIf="!loading">
     <div class="row">
         <div class="col-md-4" *ngFor="let item of products">
-           <app-product [data]="item"></app-product>
+           <app-product [data]="item" (cardData)="addToCart($event)"></app-product>  <!-- here we will send from child to parent => @output() -->
+          
         </div>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, output } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -6,5 +6,12 @@ import { Component, Input } from '@angular/core';
   styleUrl: './product.component.scss'
 })
 export class ProductComponent {
- @Input() data: any = {};
+  @Input() data: any = {};
+  @Output() cardData = new EventEmitter()
+  addButton: boolean = false;
+  amount: number = 0;
+
+  SendCardData() {
+    this.cardData.emit({item:this.data, quantity:this.amount})
+  }
 }

@@ -10,7 +10,7 @@ export class AllProductsComponent implements OnInit {
   products: any[] = [];
   categories: any[] = [];
   loading: boolean = false;
-
+  productsCart: any[] = [];
   constructor(private service: ProductsService) { }
 
   ngOnInit() {
@@ -62,4 +62,27 @@ export class AllProductsComponent implements OnInit {
       alert("Error occurred: " + error);
     });
   }
+// this part contain logic of adding data to localStorage
+  addToCart(event: any) {
+    if ("cart" in localStorage) {
+      this.productsCart = JSON.parse(localStorage.getItem("cart")!); // Load existing cart data
+  
+      // Check if item already exists in the cart
+      let exist = this.productsCart.find(item => item.id === event.id);
+      if (exist) {
+        alert('This Item Already Exists in the Cart');
+      } else {
+        this.productsCart.push(event); // Add the new item if it doesn't exist
+        localStorage.setItem("cart", JSON.stringify(this.productsCart)); // Update local storage
+      }
+    } else {
+      // If no cart data exists in localStorage, create a new cart array
+      this.productsCart = [event];
+      localStorage.setItem("cart", JSON.stringify(this.productsCart)); // Save to local storage
+    }
+  }
+  
+
+
+
 }

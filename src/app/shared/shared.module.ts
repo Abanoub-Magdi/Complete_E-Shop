@@ -7,12 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './select/select.component';
 import { ProductComponent } from './product/product.component';
-
-
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations:[
+  declarations: [
     HeaderComponent,
     SpinnerComponent,
     SelectComponent,
@@ -22,14 +20,14 @@ import { ProductComponent } from './product/product.component';
     CommonModule,
     BrowserModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
     SpinnerComponent,
     SelectComponent,
     ProductComponent
-
   ]
 })
 export class SharedModule { }
