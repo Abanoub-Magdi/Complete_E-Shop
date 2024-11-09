@@ -16,9 +16,18 @@
     max-height:50%;
   }
 
+
+
   .product-card:hover {
     transform: scale(1.05);
   }
+  .product-card {
+   
+      cursor: pointer;
+    
+    
+  }
+
 
   .card-img-top {
     height: 8rem;

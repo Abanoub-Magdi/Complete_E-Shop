@@ -9,7 +9,7 @@ export class ProductComponent {
   @Input() data: any = {};
   @Output() cardData = new EventEmitter()
   addButton: boolean = false;
-  amount: number = 0;
+  amount: number = 1;
 
   SendCardData() {
     this.cardData.emit({item:this.data, quantity:this.amount})
