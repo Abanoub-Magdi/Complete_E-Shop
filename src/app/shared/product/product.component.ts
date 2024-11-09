@@ -13,5 +13,7 @@ export class ProductComponent {
 
   SendCardData() {
     this.cardData.emit({item:this.data, quantity:this.amount})
+    alert('Item added')
+    
   }
 }

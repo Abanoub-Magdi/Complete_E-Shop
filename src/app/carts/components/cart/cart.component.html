@@ -1,1 +1,29 @@
-<p>cart works!</p>
+<div class="cart-container">
+  <h1>Your Shopping Cart</h1>
+
+  <!-- Cart Items -->
+  <div class="cart-item" *ngFor="let item of productsCart">
+    <img [src]="item.item.image" alt="Product Image" class="product-image" />
+    <div class="product-details">
+      <h3 class="product-name">{{ item.item.name }}</h3>
+      <p class="product-price">Price: {{ item.item.price }}$</p>
+      <!-- <p class="product-price">Quantity: {{ item.quantity }}</p> -->
+    </div>
+
+    <div class="quantity-control">
+      <button class="decrease-btn" (click)="decreaseQuantity(item)">-</button>
+      <input type="number" [(ngModel)]="item.quantity" class="form-control" min="1" />
+      <button class="increase-btn" (click)="increaseQuantity(item)">+</button>
+    </div>
+    
+    <p class="total-price">Total: {{ item.item.price * item.quantity }} $</p>
+    
+    <button class="remove-btn" (click)="removeItem(item)">Remove</button>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="cart-summary">
+    <p class="total-label">Total Price: $</p>
+    <button class="order-btn">Order Now</button>
+  </div>
+</div>
