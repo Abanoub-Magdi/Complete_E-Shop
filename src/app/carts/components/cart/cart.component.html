@@ -1,7 +1,7 @@
 <div class="cart-container">
   <h1>Your Shopping Cart</h1>
 
-  <!-- Cart Items -->
+<!-- Cart Items -->
   <div class="cart-item" *ngFor="let item of productsCart">
     <img [src]="item.item.image" alt="Product Image" class="product-image" />
     <div class="product-details">
@@ -22,8 +22,13 @@
   </div>
 
   <!-- Summary Section -->
-  <div class="cart-summary">
+  <!-- <div class="cart-summary">
     <p class="total-label">Total Price: $</p>
     <button class="order-btn">Order Now</button>
+  </div> -->
+  <div class="cart-summary">
+    <p class="total-label">Total Price: {{ getTotalPrice() }} $</p>
+    <button class="order-btn">Order Now</button>
   </div>
+  
 </div>

@@ -8,13 +8,15 @@ import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './select/select.component';
 import { ProductComponent } from './product/product.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SpinnerComponent,
     SelectComponent,
-    ProductComponent
+    ProductComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,        // Import CommonModule for directives like ngIf and ngFor
@@ -26,7 +28,8 @@ import { ProductComponent } from './product/product.component';
     HeaderComponent,
     SpinnerComponent,
     SelectComponent,
-    ProductComponent
+    ProductComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }

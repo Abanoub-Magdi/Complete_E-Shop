@@ -1,0 +1,54 @@
+// Footer Styles
+
+.footer {
+    transition: all 0.3s ease;
+  }
+  
+  .text-primary {
+    color: #0066cc !important;
+  }
+  
+  .link-hover {
+    text-decoration: none;
+    color: #212529;
+    transition: color 0.3s ease;
+  }
+  
+  .link-hover:hover {
+    color: #0066cc;
+  }
+  
+  .social-btn {
+    transition: transform 0.3s ease;
+  }
+  
+  .social-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  .toggle-btn {
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    background-color: #0066cc;
+    color: white;
+  }
+  
+  // Dark Mode Styles
+  .bg-dark {
+    background-color: #343a40 !important;
+  }
+  
+  .text-light {
+    color: #f8f9fa !important;
+  }
+  
+  .bg-light {
+    background-color: #f8f9fa !important;
+  }
+  
+  .text-dark {
+    color: #212529 !important;
+  }
+  

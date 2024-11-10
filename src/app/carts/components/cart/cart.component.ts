@@ -14,13 +14,18 @@ export class CartComponent implements OnInit {
   }
 
   getCartproducts() {
-    const cartData = localStorage.getItem("cart");// if cartData => localStorage contain data that mean [cartData value = True]
+    const cartData = localStorage.getItem("cart");
     if (cartData) {
       this.productsCart = JSON.parse(cartData);
-      console.log(this.productsCart);  // For debugging, to see the cart structure
+      console.log(this.productsCart);
     } else {
       console.log('No cart data in localStorage.');
     }
+  }
+
+  // Calculate the total price of items in the cart
+  getTotalPrice(): number {
+    return this.productsCart.reduce((acc, item) => acc + (item.item.price * item.quantity), 0);
   }
 
   // Increase quantity
