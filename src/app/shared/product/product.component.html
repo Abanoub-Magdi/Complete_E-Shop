@@ -1,22 +1,19 @@
-<!-- Product Card -->
-<div class="card product-card text-center">
-    <!-- Centered Product Details with Flexbox -->
-    <div [routerLink]="['/details', data.id]"
-        class="card-content d-flex flex-column align-items-center text-decoration-none">
+<div class="card product-card text-center" #cardElement>
+    <div [routerLink]="['/details', data.id]" class="card-content text-decoration-none">
         <img [src]="data.image" class="card-img-top" alt="Product Image">
-        <h5 class="card-title mt-2">{{ data.title }}</h5>
-        <p class="price">Price: {{ data.price }} $ </p>
-
+        <h5 class="card-title">{{ data.title }}</h5>
+        <p class="price">Price: {{ data.price }} $</p>
     </div>
 
-    <div class="card-body">
-        <!-- Add to Cart Button Toggle -->
-        <button *ngIf="!addButton" class="btn btn-primary" (click)="addButton = true">Add to Cart</button>
-        <!-- Quantity and Add Button Centered -->
-        <div *ngIf="addButton" class="d-flex align-items-center justify-content-center mt-2 w-100">
-            <input type="number" class="form-control me-2" [(ngModel)]="amount" min="1" placeholder="Qty">
-            <button class="btn btn-danger" (click)="SendCardData();addButton=false">Add</button>
-        </div>
+    <div class="card-body fixed-card-footer">
+        <ng-container *ngIf="!addButton; else quantityInput">
+            <button class="btn btn-primary add-to-cart-btn" (click)="addButton = true">Add to Cart</button>
+        </ng-container>
+        <ng-template #quantityInput>
+            <div class="quantity-add-container d-flex align-items-center justify-content-center">
+                <input type="number" class="form-control quantity-input me-2" [(ngModel)]="amount" min="1" placeholder="Qty">
+                <button class="btn btn-danger" (click)="SendCardData(); addButton = false">Confirm</button>
+            </div>
+        </ng-template>
     </div>
-
 </div>

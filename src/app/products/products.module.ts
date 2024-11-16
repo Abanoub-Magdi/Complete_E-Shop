@@ -15,9 +15,9 @@ import { AppRoutingModule } from '../app-routing.module';
   ],
   imports: [
     CommonModule,
-    SharedModule,
     RouterModule, //if this directive dose not exist it will lead to there is no link will work in my component
-  AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
   ]
 })
 export class ProductsModule { }

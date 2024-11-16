@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, model, OnInit } from '@angular/core';
+import { CartsService } from '../../services/carts.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
+  constructor(private service: CartsService) {
+
+  }
+  success: boolean = false;
   productsCart: any[] = [];
 
   ngOnInit(): void {
@@ -51,5 +56,20 @@ export class CartComponent implements OnInit {
   removeItem(item: any) {
     this.productsCart = this.productsCart.filter(product => product !== item);
     this.updateCart();
+  }
+
+  SendCartToApi() {
+    let products = this.productsCart.map(item => {
+      return { productId: item.item.id, quantity: item.quantity }
+    })
+    let Model = {
+      userId: 1,
+      date: new Date(),
+      products: products
+    }
+    this.service.SendingTheCartForserver(Model).subscribe(data => {
+      this.success = true;
+    })
+    console.log(Model)
   }
 }

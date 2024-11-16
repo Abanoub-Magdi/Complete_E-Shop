@@ -1,0 +1,58 @@
+// /* Global Size Variables */
+// :root {
+//     --font-size: 14px;           /* Default font size */
+//     --padding: 8px;              /* General padding for components */
+//     --margin: 8px;               /* General margin for components */
+//     --product-card-width: 250px; /* Product card width */
+//     --product-card-height: 350px; /* Product card height */
+//     --header-height: 60px;       /* Header height */
+//     --button-size: 10px;         /* Button padding and font size */
+//   }
+  
+//   /* Apply these variables globally */
+//   body {
+//     font-size: var(--font-size);
+//   }
+  
+//   .admin-container {
+//     max-width: 100%;
+//     padding: var(--padding);
+//     margin: var(--margin);
+//   }
+  
+//   .admin-title {
+//     font-size: calc(var(--font-size) * 1.5);
+//   }
+  
+//   .filter-container select {
+//     padding: var(--padding);
+//     font-size: calc(var(--font-size) * 1.2);
+//   }
+  
+//   /* Product Grid */
+//   .product-grid {
+//     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+//   }
+  
+//   .product-card {
+//     width: var(--product-card-width);
+//     height: var(--product-card-height);
+//     padding: var(--padding);
+//   }
+  
+//   .product-card img {
+//     max-width: 100%;
+//     height: auto;
+//   }
+  
+//   button {
+//     padding: var(--button-size) var(--padding);
+//     font-size: calc(var(--font-size) * 1.2);
+//   }
+  
+//   /* Header */
+//   .header {
+//     height: var(--header-height);
+//     padding: var(--padding);
+//   }
+  

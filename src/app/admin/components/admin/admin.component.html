@@ -1,0 +1,39 @@
+<div class="admin-container">
+    <h1 class="admin-title">Product Management</h1>
+  
+    <!-- Category Filter -->
+    <div class="filter-container">
+      <select [(ngModel)]="selectedCategory" (change)="filterByCategory()">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </div>
+  
+    <!-- Add or Edit Product Form -->
+    <div class="add-product-form">
+      <h3>{{ selectedProductId ? 'Update Product' : 'Add New Product' }}</h3>
+      <form (ngSubmit)="saveProduct()">
+        <input type="text" [(ngModel)]="productTitle" name="name" placeholder="Product Name" required />
+        <input type="number" [(ngModel)]="productPrice" name="price" placeholder="Price" required />
+        <input type="url" [(ngModel)]="productImage" name="image" placeholder="Image URL" required />
+        <button type="submit">{{ selectedProductId ? 'Update' : 'Add' }} Product</button>
+      </form>
+    </div>
+  
+    <!-- Product List -->
+    <div class="product-list">
+      <h3>Products</h3>
+      <div class="product-grid">
+        <div *ngFor="let product of products" class="product-card">
+          <img [src]="product.image" alt="Product Image" />
+          <h4>{{ product.title }}</h4>
+          <p>Price: ${{ product.price }}</p>
+          <div class="product-actions">
+            <button (click)="editProduct(product)" class="edit-btn">Edit</button>
+            <button (click)="deleteProduct(product.id)" class="delete-btn">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,4 +30,13 @@ export class ProductsService {
   }
 
 
+  // Add a new product
+  addProduct(product: any): Observable<any> {
+    return this.http.post(`${environment.apiUrl}products`, product); // Use POST for adding
+  }
+
+  // Delete a product by ID
+  deleteProduct(id: number): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}products/${id}`); // Use DELETE for deleting
+  }
 }

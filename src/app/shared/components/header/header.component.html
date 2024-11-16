@@ -1,18 +1,47 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <a class="navbar-brand" href="#">E-Shop</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/Products" routerLinkActive="router-link-active">Products</a>
+                <a class="nav-link" routerLink="/products" routerLinkActive="router-link-active">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/cart" routerLinkActive="router-link-active">Cards</a>
+                <a class="nav-link" routerLink="/cart" routerLinkActive="router-link-active">Cart</a>
             </li>
+
+            <!-- Conditionally show Admin tab only if user is an admin -->
+            <li *ngIf="isAdmin" class="nav-item">
+                <a class="nav-link" routerLink="/admin" routerLinkActive="router-link-active">Admin</a>
+            </li>
+
         </ul>
     </div>
+
+    <!-- Dark Mode Toggle Button -->
+    <label for="slider" style="color: white; padding-right: .5rem;">Dark Mode</label>
+    <div class="toggle-container">
+        <button (click)="toggleDarkMode()" class="toggle-btn">
+            <span class="slider" id="slider"  [class.active]="isDarkMode"> </span>
+        </button>
+    </div>
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="router-link-active">Login</a>
+        </li>
+
+        <!-- Conditionally show Logout button only if user is an admin -->
+        <li *ngIf="isAdmin" class="nav-item">
+            <button class="nav-link btn btn-link" (click)="logout()">Logout</button>
+        </li>
+
+    </ul>
 </nav>
+
+<!-- Main content to offset for fixed navbar -->
+<div class="main-content">
+    <p></p> <!-- Your main content here -->
+</div>

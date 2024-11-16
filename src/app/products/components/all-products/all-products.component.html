@@ -1,13 +1,26 @@
-<div class="my-2 w-25">
-    <app-select [data]="categories" [title]="'categories'" (selectedValue)="getFilteredCategory($event)"></app-select>
-</div>
-<div class="container" *ngIf="!loading">
-    <div class="row">
-        <div class="col-md-4" *ngFor="let item of products">
-           <app-product [data]="item" (cardData)="addToCart($event)"></app-product>  <!-- here we will send from child to parent => @output() -->
-        </div>
+<div class="my-4 text-center">
+    <!-- Category Filter Dropdown -->
+    <div class="w-50 mx-auto">
+    
+      <!-- I can add this part if needed    [title]="'Categories'"  -->
+      <app-select 
+        [data]="categories" 
+        (selectedValue)="getFilteredCategory($event)">
+      </app-select>
     </div>
-</div>
-<div class="text-center w100" *ngIf="loading">
+  </div>
+  
+  <div class="container my-5" *ngIf="!loading">
+    <!-- Product Cards -->
+    <div class="row g-4">
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let item of products">
+        <app-product [data]="item" (cardData)="addToCart($event)"></app-product>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Spinner while loading -->
+  <div class="text-center" *ngIf="loading">
     <app-spinner></app-spinner>
-</div>
+  </div>
+  

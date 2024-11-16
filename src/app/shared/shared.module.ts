@@ -9,6 +9,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './select/select.component';
 import { ProductComponent } from './product/product.component';
 import { FooterComponent } from './components/footer/footer.component';
+// import { LoginComponent } from '../login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SpinnerComponent,
     SelectComponent,
     ProductComponent,
-    FooterComponent
+    FooterComponent,
+    // LoginComponent
   ],
   imports: [
     CommonModule,        // Import CommonModule for directives like ngIf and ngFor

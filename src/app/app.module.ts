@@ -7,11 +7,19 @@ import { SharedModule } from './shared/shared.module';
 // import { HttpClientModule } from '@angular/common/http';
 import { ProductsModule } from './products/products.module';
 import { CartsModule } from './carts/carts.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { AdminComponent } from './admin/components/admin/admin.component';
+import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './Interceptors/auth.interceptor';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -20,10 +28,16 @@ import { CartsModule } from './carts/carts.module';
     // HttpClientModule,
     CommonModule,
     ProductsModule,
-    CartsModule
+    CartsModule,
+    MatSnackBarModule,
+    FormsModule
 
   ],
-  providers: [],
+  providers: [ {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

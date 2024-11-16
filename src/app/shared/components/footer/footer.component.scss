@@ -1,54 +1,65 @@
-// Footer Styles
-
+/* Premium Footer Styles */
 .footer {
-    transition: all 0.3s ease;
-  }
-  
-  .text-primary {
-    color: #0066cc !important;
-  }
-  
-  .link-hover {
+    background: linear-gradient(135deg, #1f1f1f, #343a40); // subtle gradient for a modern effect
+    color: #f0f0f0;
+    padding: 2rem 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 100%;
+}
+
+.footer h4 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd700; // gold color for a premium touch
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.footer p {
+    font-size: 1rem;
+    color: #b0b0b0; // softer text color for descriptions
+    margin-top: 0.5rem;
+}
+
+.footer a {
+    color: #f0f0f0;
+    font-size: 1rem;
     text-decoration: none;
-    color: #212529;
-    transition: color 0.3s ease;
-  }
-  
-  .link-hover:hover {
-    color: #0066cc;
-  }
-  
-  .social-btn {
-    transition: transform 0.3s ease;
-  }
-  
-  .social-btn:hover {
-    transform: scale(1.2);
-  }
-  
-  .toggle-btn {
-    transition: background-color 0.3s ease;
-  }
-  
-  .toggle-btn:hover {
-    background-color: #0066cc;
-    color: white;
-  }
-  
-  // Dark Mode Styles
-  .bg-dark {
-    background-color: #343a40 !important;
-  }
-  
-  .text-light {
-    color: #f8f9fa !important;
-  }
-  
-  .bg-light {
-    background-color: #f8f9fa !important;
-  }
-  
-  .text-dark {
-    color: #212529 !important;
-  }
-  
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer a:hover {
+    color: #ffd700; // matches the heading for a consistent premium feel
+    transform: scale(1.05); // subtle zoom effect for interaction
+}
+
+.footer .social-icons {
+    margin-top: 1.5rem;
+}
+
+.footer .social-icons a {
+    font-size: 1.8rem;
+    color: #b0b0b0;
+    margin: 0 10px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.footer .social-icons a:hover {
+    color: #ffd700;
+    transform: scale(1.15); // slight bounce effect for a premium feel
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .footer h4 {
+        font-size: 1.5rem;
+    }
+
+    .footer .social-icons a {
+        font-size: 1.5rem;
+    }
+}
