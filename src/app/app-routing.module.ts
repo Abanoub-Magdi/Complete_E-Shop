@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: 'login', component:LoginComponent },
   { path: 'products', component: AllProductsComponent },
+  // { path: 'products',loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule) },
   { path: 'details/:id', component: ProductsDetailsComponent },
   { path: 'cart', component: CartComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard] },

@@ -5,6 +5,7 @@ import { ProductsDetailsComponent } from './components/products-details/products
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+// import { LazyProductsModule } from './lazy-products/lazy-products.module';
 
 
 
@@ -18,6 +19,8 @@ import { AppRoutingModule } from '../app-routing.module';
     RouterModule, //if this directive dose not exist it will lead to there is no link will work in my component
     AppRoutingModule,
     SharedModule,
+    // LazyProductsModule
+    
   ]
 })
 export class ProductsModule { }

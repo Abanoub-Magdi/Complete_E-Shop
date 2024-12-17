@@ -12,8 +12,6 @@ export class ProductsDetailsComponent implements OnInit {
   data: any = {}
   loading: boolean = false;
   constructor(private rout: ActivatedRoute, private service: ProductsService) {
-
-
     this.id = this.rout.snapshot.paramMap.get("id")
     console.log(this.id)
   }
@@ -30,6 +28,4 @@ export class ProductsDetailsComponent implements OnInit {
       // console.log(this.data = CardData); 
     })
   }
-
-
 }
