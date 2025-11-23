@@ -1,6 +1,14 @@
-# EShop
+# EShop - Complete E-Commerce Application
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+
+## 🌐 Live Demo
+
+The application is deployed on GitHub Pages: [View Live Site](https://abanoub-magdi.github.io/Complete_E-Shop/)
+
+## 🚀 Deployment
+
+This project uses GitHub Actions for automatic deployment to GitHub Pages. The deployment workflow runs automatically on every push to the `main` branch.
 
 ## Development server
 
