@@ -12,6 +12,8 @@ A modern, full-featured e-commerce web application built with Angular 18. This a
 
 **View the live application:** [https://abanoub-magdi.github.io/Complete_E-Shop/](https://abanoub-magdi.github.io/Complete_E-Shop/)
 
+![Project Preview](assets/project_preview.png)
+
 ## ✨ Features
 
 - 🛍️ **Product Catalog** - Browse products with category filtering
